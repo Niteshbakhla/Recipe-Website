@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { RecipeContext } from '../context/MainContext'
 import { nanoid } from 'nanoid'
@@ -17,6 +17,15 @@ const Create = () => {
   reset()
   console.log(data);
  }
+
+   useEffect(() => {
+     const retriveRecipies= JSON.parse(localStorage.getItem("info"))
+     setinfo(retriveRecipies)
+    }, [setinfo])
+  
+    useEffect(() => {
+      localStorage.setItem("info",JSON.stringify(info))
+    }, [info])
 
 
   return (

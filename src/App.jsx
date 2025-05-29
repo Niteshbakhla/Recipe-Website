@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom'
 
 
 const App = () => {
- const {editId, seteditId, info,setinfo, search, setsearch}= useContext(RecipeContext)
+//  const {editId, seteditId, info,setinfo, search, setsearch}= useContext(RecipeContext)
   const navigate= useNavigate()
 
  const navigateSearch=()=>{
   navigate("/recipes/search")
  }
+
 
   return (
     <div className=' h-full w-full flex flex-col items-center box-border'>

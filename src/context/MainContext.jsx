@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 
 export const RecipeContext= createContext()
@@ -13,6 +13,8 @@ const MainContext = ({children}) => {
     [rec.title, rec.chefname, rec.catagory].some(field=> field.toLowerCase().includes(search.toLowerCase()))
   //  filter? rec.title.toLowerCase().includes(filter.title.toLowerCase()):false)
   ))
+ 
+  
 
   return (
     <div>

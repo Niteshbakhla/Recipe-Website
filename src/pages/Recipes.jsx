@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {Link } from 'react-router-dom'
 import { RecipeContext } from '../context/MainContext'
 import RecipeTemplate from '../components/RecipeTemplate'
@@ -10,6 +10,18 @@ const Recipes = () => {
   const recipeRender= filters.map(rec=> (
     <RecipeTemplate key={rec.id} recipe={rec}/>
 ))
+
+ useEffect(() => {
+   const retriveRecipies= JSON.parse(localStorage.getItem("info"))
+   if (retriveRecipies) {
+     setinfo(retriveRecipies)
+   }
+  }, [setinfo])
+
+
+  useEffect(() => {
+    localStorage.setItem("info",JSON.stringify(info))
+  }, [info])
 
   return (
     <div className='w-full h-full flex flex-col p-3 items-center'>
